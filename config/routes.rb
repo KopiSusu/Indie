@@ -8,4 +8,10 @@ Indie::Application.routes.draw do
 
   root to: 'games#index'
 
+  namespace :admin do
+    resources :users do
+      get "add_admin"
+    end
+  end
+
 end

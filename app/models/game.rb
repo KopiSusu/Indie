@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
 
   has_many :reviews
+  has_attached_file :image, :styles => {  small: "150x150>", med: "350x350>", large: "500x500>" }
 
   validates :title,
     presence: true
@@ -11,20 +12,27 @@ class Game < ActiveRecord::Base
   validates :description,
     presence: true
 
-  validates :poster_image_url,
-    presence: true
-
   validates :release_date,
     presence: true
 
-  def review_average
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  def review_average
     if reviews.size > 0 
       return "#{reviews.sum(:rating_out_of_ten)/reviews.size}/10"
     else
       return 'No Current Reviews'
     end
+  end
 
+  def self.search(search)
+    if search
+      if search.match(/\d+$/)
+        where('runtime_in_minutes LIKE :search' , {:search => "%#{search}%"})
+      else
+        where('title LIKE :search OR developer like :search' , {:search => "%#{search}%"})
+      end
+    end
   end
 
 end

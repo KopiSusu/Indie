@@ -1,7 +1,11 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    if params[:search]
+      @games = Game.search(params[:search])
+    else
+      @games = Game.all
+    end
   end
 
   def show
@@ -46,7 +50,7 @@ class GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(
-      :title, :release_date, :developer, :poster_image_url, :description
+      :title, :release_date, :developer, :image, :description
     )
   end
 
