@@ -1,0 +1,14 @@
+<h1>Undercover Indie</h1>
+<%= link_to "Submit a game!", new_game_path %>
+<hr>
+<% @games.each do |game| %>
+  <%= link_to image_tag(game.poster_image_url),  game_path(game) %>
+  <h2><%= link_to game.title, game_path(game) %></h2>
+  <h3><%= link_to game.title, game_path(game) %></h3>
+  <h4>Developer. <%= game.developer %> </h4>
+  <p><%= game.description %> </p>
+  <% if game.review_average %>
+    <p><%= game.review_average %><p>
+  <% end %>
+  <hr>
+<% end %>

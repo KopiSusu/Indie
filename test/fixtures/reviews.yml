@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rails: MyString
+  g: MyString
+  model: MyString
+  review: MyString
+  user_id: 
+  movie_id: 
+  text: MyText
+  rating_out_of_ten: 1
+
+two:
+  rails: MyString
+  g: MyString
+  model: MyString
+  review: MyString
+  user_id: 
+  movie_id: 
+  text: MyText
+  rating_out_of_ten: 1
