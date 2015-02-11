@@ -1,22 +1,38 @@
-<%= link_to "Back to all games", games_path %> <br/>
+<section class='container' id='show'>
 
-<%= link_to image_tag(@game.image.url(:med)), game_path(@game) %>
-<h2><%= @game.title %> (<%= link_to "edit", edit_game_path(@game) %>, <%= link_to "delete", game_path(@game), method: :delete, confirm: "You sure?" %>)</h2>
-<h3><%= formatted_date(@game.release_date) %></h3>
-<h4> Developer. <%= @game.developer %> </h4>
-<p><%= @game.description %></p>
-<p><%= @game.review_average %><p>
+  <article id='right'>
+    <%= link_to image_tag(@game.image.url(:large)), game_path(@game) %>
 
-<hr>
+    <div class='text'>
+      <h2><%= @game.title %> </h2> 
+      <h2 class='edit'>[<%= link_to "edit", edit_game_path(@game) %>, <%= link_to "delete", game_path(@game), method: :delete, confirm: "You sure?" %>]</h2>
+      <h3><%= formatted_date(@game.release_date) %></h3>
+      <h4> Developer. <%= @game.developer %> </h4>
+      <p><%= @game.description %></p>
+      <p><%= @game.review_average %></p>
+    </div>
+  </article>
 
-<h3>Reviews of <em><%= @game.title %></em></h3>
-<% if current_user %>
-  <% @game.reviews.each do |review| %>
-    <p><%= review.text %></p>
-    <p><%= review.rating_out_of_ten %>/10</p>
-    <small>- <%= review.user.full_name %></small><br/>
-  <% end %>
-  <p><%= link_to "Write a review!", new_game_review_path(@game) %></p>
-<% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
-<% end %>
+  <article id='left'>
+    <div id='divider'></div>
+    <h3>Reviews of <em><%= @game.title %></em></h3>
+    <% if current_user %>
+      <% @game.reviews.each do |review| %>
+        <p class='review'><em>"<%= review.text %>"</em></p>
+        <p><%= review.rating_out_of_ten %>/10</p>
+        <small>- <%= review.user.full_name %></small><br/>
+      <% end %>
+      <p><%= link_to "Write a review!", new_game_review_path(@game) %></p>
+    <% else %>
+      <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+    <% end %>
+  </article>
+
+  <article id='other'>
+    <% @games.each do |game| %>
+      <ul>
+        <%= link_to image_tag(game.image.url(:large)), game_path(game) %>
+      </ul>
+    <% end %>
+  </article>
+</section>

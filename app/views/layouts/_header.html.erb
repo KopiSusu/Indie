@@ -1,9 +1,39 @@
-<h1>Undercover Indie</h1>
+<!-- top title -->
+<section class="container">
+  <div id='title'> <h1>UnderCover Indie</h1> </div>
 
-<%= form_tag games_path, :method => 'get' do %>
-  <div id='search'>
-    <p> Search by: Title, Developer</p>
-    <%= text_field_tag :search%> 
-    <%= submit_tag "Search", :title => nil, :developer => nil%> <br>
-  </div>
-<% end %> <br>
+  <!-- Header -->
+  <nav class="clearfix">  
+
+  <% if current_user %>
+    <ul class="clearfix" style='padding-left: 100px'> 
+  <% else %>
+    <ul class="clearfix"> 
+  <% end %>
+          <% if current_user %>
+          <li id='user'>
+            <a>Hi, <%= current_user.full_name %></a>
+          <% else %>
+          <li>
+            <%= link_to "Log In", new_session_path %>
+          <% end %>
+        </li> 
+        <li>
+          <% if current_user %>
+            <%= link_to "Log out", session_path("current"), method: :delete %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_path %>
+          <% end %>
+        </li>  
+        <li><%= link_to "Games", games_path %></li>  
+        <li><a>Trailers</a></li>   
+        <li><%= link_to "Submit", new_game_path %></li> 
+        <%= form_for games_path, :html => { :id => 'form' }, :method => 'get' do %>
+            <li><a id='search'>Search</a></li> 
+            <li id='text-tag'><%= text_field_tag :search%></li>
+        <% end %> 
+
+    </ul>  
+    <a id="pull">Menu</a>  
+  </nav> 
+</section>

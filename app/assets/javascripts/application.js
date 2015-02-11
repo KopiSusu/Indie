@@ -14,3 +14,35 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+    // some needed variables
+  var width = $(window).width();
+
+  // sticky nav bar
+  $( window ).scroll(function() {
+      
+      var scroll = $( window ).scrollTop();
+
+      if (scroll > 140 && width > 600) {
+          $('nav').addClass("fixed");
+      } else {
+          $('nav').removeClass("fixed");
+      } 
+    
+  });
+
+  $('#search').click(function() {
+    $('#form').submit();
+  });
+
+  // $('#search').mouseenter(function() {
+  //   $('#text-tag input').animate({width: "9%"}, 350);
+  // });
+  // $('nav').mouseleave(function() {
+  //   $('#text-tag input').animate({width: "0%"}, 350);
+  // });
+
+
+});

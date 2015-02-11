@@ -27,11 +27,7 @@ class Game < ActiveRecord::Base
 
   def self.search(search)
     if search
-      if search.match(/\d+$/)
-        where('runtime_in_minutes LIKE :search' , {:search => "%#{search}%"})
-      else
         where('title LIKE :search OR developer like :search' , {:search => "%#{search}%"})
-      end
     end
   end
 

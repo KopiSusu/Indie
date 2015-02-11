@@ -1,12 +1,17 @@
-<%= link_to "Submit a game!", new_game_path %>
-<hr>
-<% @games.each do |game| %>
-  <%= link_to image_tag(game.image.url(:med)), game_path(game) %>
-  <h2><%= link_to game.title, game_path(game) %></h2>
-  <h4>Developer. <%= game.developer %> </h4>
-  <p><%= game.description %> </p>
-  <% if game.review_average %>
-    <p><%= game.review_average %><p>
+<section class='container' id='desc'>
+  <article>
+    <h3> "Some Text, Some text that describes the purpose of the site" </h3>
+  </article>
+</section>
+
+<section class='container' id='games'>
+
+  <% @games.each do |game| %>
+    <ul>
+      <%= link_to image_tag(game.image.url(:large)), game_path(game) %>
+      <h3><%= game.title %></h3>
+      <p> "Some review text, some review text, some review text" </p>
+    </ul>
   <% end %>
-  <hr>
-<% end %>
+
+</section>

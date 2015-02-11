@@ -1,12 +1,58 @@
-<h1>Log In</h1>
-<%= form_tag sessions_path do %>
-  <div>
-    <%= label_tag "email" %><br/>
-    <%= text_field_tag "email" %>
+<section class='container' id='new'> 
+  <h1>Log In</h1>
+  <%= form_tag sessions_path do %>
+    <div>
+      <%= label_tag "email" %><br/>
+      <%= text_field_tag "email" %>
+    </div>
+    <div>
+      <%= label_tag :password %><br/>
+      <%= password_field_tag :password %>
+    </div>
+    <div><%= submit_tag "Log In" %></div>
+  <% end %>
+
+  <div id='left'>
+
+    <div>
+      <%= image_tag("banished.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("brothers.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("darksouls.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("dontstarve.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("dota.jpeg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("FTL.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("reus.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("shadowrun.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("stanley.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div>
+      <%= image_tag("trine.jpg", :alt => "rss feed") %>
+    </div>
+
   </div>
-  <div>
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
-  </div>
-  <div><%= submit_tag "Log In" %></div>
-<% end %>
+</section>
