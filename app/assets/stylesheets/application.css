@@ -340,6 +340,11 @@ a {
       line-height: 15px;
       color: #595b5c;
     }
+      #right .text p {
+        max-height: 50px;
+        margin: 0.5em;
+        overflow: auto;
+      }
       #right .text .edit {
         font-size: 0.7em;
         position: absolute;
@@ -379,7 +384,7 @@ a {
     padding-left: 1%;
     padding-right: 1%;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
     background: #FaFaFa;
     border-left: 1px solid #595b5c;
   }
