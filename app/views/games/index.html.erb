@@ -1,6 +1,6 @@
 <section class='container' id='desc'>
   <article>
-    <h3> "Some Text, Some text that describes the purpose of the site" </h3>
+    <h3> Find, rate, and share all the indie games that snuck their way into your heart. </h3>
   </article>
 </section>
 
@@ -10,7 +10,7 @@
     <ul>
       <%= link_to image_tag(game.image.url(:large)), game_path(game) %>
       <h3><%= game.title %></h3>
-      <p> "Some review text, some review text, some review text" </p>
+      <p> "<%= game.description %>" </p>
     </ul>
   <% end %>
 

@@ -239,6 +239,8 @@ nav {
   #games ul {
     padding: 0;
     margin: 0;
+    height: 550px;
+    overflow: hidden;
   }
     #games img {
       width: 100%;
@@ -377,7 +379,7 @@ a {
     padding-left: 1%;
     padding-right: 1%;
     height: 100%;
-    overflow: hidden;
+    overflow: scroll;
     background: #FaFaFa;
     border-left: 1px solid #595b5c;
   }
